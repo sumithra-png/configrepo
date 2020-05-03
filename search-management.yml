@@ -1,0 +1,57 @@
+server:
+      port: 8086
+
+
+eureka: 
+  instance: 
+     hostname: localhost
+     appname: search-management
+     status-page-url-path: /swagger-ui.html
+  client:
+      eureka-server-port: 8086
+      register-with-eureka: true
+      fetch-registry: true
+      serviceUrl:  
+        default-zone: http://eureka-primary:8761/eureka, http://order-service:8084/eureka, http://user-service:8085/eureka
+                    
+
+
+      
+logging:
+    level:
+      web: trace
+
+
+log4j2.contextSelector: org.apache.logging.log4j.core.async.AsyncLoggerContextSelector   
+
+#Zuul
+zuul:
+  routes:
+    order-service:
+      url: 
+        http://localhost:8084/eureka
+    user-service:
+      url: 
+        http://localhost:8085/eureka      
+    
+    
+    
+   
+  
+security:
+        oauth2:
+              client:
+                    clientId : 867032803412-qcgl21dqcmiin5r8ck5akdfkqbmqd5fd.apps.googleusercontent.com
+                    clientSecret : uxeu9IKwkvA8lqfnbtMTbrsD
+                    accessTokenUri  :  https://www.googleapis.com/oauth2/v3/token
+                    userAuthorizationUri  :  https://accounts.google.com/o/oauth2/auth
+                    tokenName : oauth_token
+                    authenticationScheme : query
+                    clientAuthenticationScheme : form
+                    scope : profile email
+              resource:
+                      userInfoUri  :  https://www.googleapis.com/userinfo/v2/me
+                      preferTokenInfo : false 
+  
+       
+      
