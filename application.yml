@@ -7,7 +7,7 @@ spring:
     username: root
     password: Apple123$$
   application:
-      name: EurekaClientUserManagement
+      name: USERS
 eureka:
    instance: 
         hostname: localhost
