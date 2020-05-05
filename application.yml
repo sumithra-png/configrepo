@@ -3,6 +3,6 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/HMS
+    url: jdbc:mysql://${MYSQL_HOST:hmsinstance2.cocqydkvpsq8.ap-south-1.rds.amazonaws.com}:3306/hms
     username: root
     password: Apple123$$
